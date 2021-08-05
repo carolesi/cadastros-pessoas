@@ -1,3 +1,9 @@
+<?php
+
+include 'conexao.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,5 +25,35 @@
         <input type="text" name="funcao"><br>
         <input type="submit" value="Salvar dados">
     </form>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Nome</th><th>CPF</th><th>Funcao</th><th>Editar</th><th>Deletar</th>
+        </tr>
+
+        <?php 
+        
+        // pesquisar os dados da tabela tb_pessoas
+        $sql = "SELECT * FROM `tb_pessoas`";
+
+        // executar o comando SQL
+        $resultados = mysqli_query($conexao, $sql);
+
+        // laço para mostrar os dados das linhas de tb_pessoas
+        while($linha = $resultados -> fetch_assoc()) {
+            echo "<tr>
+                    <td>".$linha['pes_id']."</td>
+                    <td>".$linha['pes_nome']."</td>
+                    <td>".$linha['pes_cpf']."</td>
+                    <td>".$linha['pes_funcao']."</td>
+                    <td><img src='imgs/edit.png' width='24px'></td>
+                    <td><img src='imgs/delete.png' width='24px'></td>
+                </tr>";
+        }
+        
+        ?>
+
+
+    </table>
 </body>
 </html>
