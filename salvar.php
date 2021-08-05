@@ -14,3 +14,11 @@ $sql = "INSERT INTO `tb_pessoas` (`pes_id`, `pes_nome`, `pes_cpf`, `pes_funcao`)
 mysqli_query($conexao, $sql);
 
 ?>
+
+<script type="text/javascript">
+    // informa que foi salvo
+    alert("Salvo com sucesso!");
+
+    // redireciona para a página anterior
+    window.location.href = "index.php";
+</script>
