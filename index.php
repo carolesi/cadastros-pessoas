@@ -16,13 +16,27 @@ include 'conexao.php';
     <h2>Cadastro de Pessoas</h2>
     <form method="POST" action="salvar.php">
         <label for="id">ID:</label>
-        <input type="text" name="id"><br>
+        <input type="hidden" name="id" 
+        <?php
+            if (isset($_GET['id'])) {
+                echo "value = ".$_GET['id'].">";
+                echo $_GET['id'];
+            } else {
+                echo ">";
+            }
+        ?>
+        <br>
         <label for="nome">Nome:</label>
         <input type="text" name="nome"><br>
         <label for="cpf">CPF:</label>
         <input type="text" name="cpf"><br>
         <label for="funcao">Função:</label>
         <input type="text" name="funcao"><br>
+
+        <a href="index.php">
+            <input type="button" value="Limpar formulário">
+        </a>
+
         <input type="submit" value="Salvar dados">
     </form>
     <hr>
@@ -46,8 +60,14 @@ include 'conexao.php';
                     <td>".$linha['pes_nome']."</td>
                     <td>".$linha['pes_cpf']."</td>
                     <td>".$linha['pes_funcao']."</td>
-                    <td><img src='imgs/edit.png' width='24px'></td>
-                    <td><img src='imgs/delete.png' width='24px'></td>
+
+                    <td align='center'>
+                        <a href='index.php?id=".$linha['pes_id']."'><img src='imgs/edit.png' width='24px'></a>
+                    </td>
+
+                    <td align='center'>
+                        <a href='excluir.php?id=".$linha['pes_id']."'><img src='imgs/delete.png' width='24px'></a>
+                    </td>
                 </tr>";
         }
         
