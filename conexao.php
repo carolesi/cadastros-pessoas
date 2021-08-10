@@ -2,9 +2,9 @@
 
 // atributos básicos para um conexão com banco MySQL
 $servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "cadastrosuece";
+$usuario = "301808";
+$senha = "ca12r90l";
+$banco = "301808";
 
 // realizando a conexão
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco) or die;
