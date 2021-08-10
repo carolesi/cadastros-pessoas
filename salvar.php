@@ -10,7 +10,7 @@ $funcao = $_POST['funcao'];
 // inserir os dados preenchidos no banco de dados
 
 // se já tem um id, edita
-if (isset($_POST['id'])) {
+if (isset($_POST['id']) and $_POST['id'] != "" and $_POST['id'] != null) {
     $id = $_POST['id'];
     $sql = "update tb_pessoas set pes_nome = '$nome', pes_cpf = '$cpf', pes_funcao = '$funcao' where pes_id = $id";
 
